@@ -28,7 +28,7 @@ void desalocaMatriz(double ***M, int ordem)
     free(*M);
 }
 
-// manter como especificado
+// manter como especificadoh
 void lerOperacao(char *operacao)
 {
     getchar();
