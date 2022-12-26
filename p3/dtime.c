@@ -31,6 +31,14 @@ Time *alocaTimes(int n)
 void desalocaTimes(Time **times, int n)
 {
     /* Desaloca um vetor ou um unico time alocado dinamicamente */
+
+    for (int i = 0; i < n; i++)
+    {
+        free((*times)[i].entregador);
+        free((*times)[i].lider);
+        free((*times)[i].piloto);
+    }
+  
     free(*times);
 }
 
@@ -43,24 +51,24 @@ void escalarTimes(Duende *duendes, Time *times, int qtdDuendes)
     for (i = 0; i < qtdTime; i++)
     {
         index = proximoMaisVelho(duendes, qtdDuendes);
-        times[i].lider = &duendes[index];
-        duendes[index].escalado = SIM;
+        times[i].lider = copiaDuende(duendes, index);
+        escalarDuende(duendes, index);
     }
 
     // Escalando os pilotos
     for (i = 0; i < qtdTime; i++)
     {
         index = proximoMaisVelho(duendes, qtdDuendes);
-        times[i].piloto = &duendes[index];
-        duendes[index].escalado = SIM;
+        times[i].piloto = copiaDuende(duendes, index);
+        escalarDuende(duendes, index);
     }
 
     // Escalando os entregadores
     for (i = 0; i < qtdTime; i++)
     {
         index = proximoMaisVelho(duendes, qtdDuendes);
-        times[i].entregador = &duendes[index];
-        duendes[index].escalado = SIM;
+        times[i].entregador = copiaDuende(duendes, index);
+        escalarDuende(duendes, index);
     }
 }
 
