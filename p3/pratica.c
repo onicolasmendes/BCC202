@@ -22,9 +22,9 @@ int main() {
 
     Considerando o termo de maior grau de cada função, temos:
 
-    proximoMaisVelho = O (n)
+    proximoMaisVelho = O (n) -> Complexidade linear 
 
-    escalarTimes = O (n^2)
+    escalarTimes = O (n^2) -> Complexidade quadrática
 
    ------------------------------------------------------------------------
 
