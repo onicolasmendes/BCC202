@@ -3,14 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum { NAO=0, SIM } ESCALADO; //Implementei a struct duende nesse .c porque o mesmo não estava conseguindo encontrar a implementação da struct duende na hora de implementar a struct time, mesmo com o uso de "*" no nome Duende
-
-struct duende {
-    char nome[20];
-    int idade;
-    ESCALADO escalado;
-};
-
 struct time
 {
     Duende* lider;
