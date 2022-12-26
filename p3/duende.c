@@ -53,29 +53,20 @@ void lerDuendes(Duende *duendes, int n) {
 // Manter como especificado
 int proximoMaisVelho(Duende *duendes, int n) {
     /* Pega o próximo duende mais velho que ainda nao foi escalado */
-    //Ordena o vetor
+    int index;
+    Duende maisVelho;
+    maisVelho.idade = -1;
+    
     for (int i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++)
+        if(maisVelho.idade < duendes[i].idade && duendes[i].escalado == NAO)
         {
-            if (duendes[i].idade < duendes[j].idade)
-            {
-                Duende temp = duendes[i];
-                duendes[i] = duendes[j];
-                duendes[j] = temp;
-            }
-        }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        if(duendes[i].escalado == NAO)
-        {
-            return i;
+            maisVelho = duendes[i];
+            index = i;
         }
     }
     
-    return 0;
+    return index;
 }
 
 // Manter como especificado
