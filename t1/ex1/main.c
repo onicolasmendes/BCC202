@@ -64,8 +64,8 @@ int main()
     //Adicionando \0
     beiju[iBeiju] = '\0';
     naoEhBeiju[iNaoEhBeiju] = '\0';
-    printf("%s", textoDigitado);
-   /*
+   
+   
     //Concatenando as strings
     strcat(beiju, naoEhBeiju);
 
