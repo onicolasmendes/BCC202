@@ -21,7 +21,7 @@ typedef struct {
 void TLista_Inicia ( TLista * pLista );
 int TLista_EhVazia ( TLista * pLista );
 int TLista_Insere_Fim ( TLista * pLista , char x);
-int TLista_Insere_Inicio ( TLista * pLista , char x, TCelula *aux);
+int TLista_Insere_Inicio ( TLista * pLista , char x);
 void TLista_Imprime ( TLista * pLista );
 void TLista_Esvazia (TLista * pLista);
 

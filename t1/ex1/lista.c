@@ -2,11 +2,12 @@
 
 void TLista_Inicia (TLista * pLista ) {
     //Aloca a cabeça da lista
-    pLista->cabeca = (TCelula*) malloc(sizeof(TCelula));
+    TCelula *cabeca = (TCelula*) malloc(sizeof(TCelula));
+    pLista->cabeca = cabeca;
     //prox da cabeça aponta prs NULL
     pLista->cabeca->prox = NULL;
     //ultimo aponta pra cabeça
-    pLista->ultimo = pLista->cabeca;
+    pLista->ultimo = cabeca;
 }
 
 int TLista_EhVazia ( TLista * pLista ) {
@@ -23,23 +24,17 @@ int TLista_Insere_Fim ( TLista * pLista , char x) {
     pLista->ultimo = new;
     //o prox da celula aponta pra NULL
     pLista->ultimo->prox = NULL;
-
-    if(TLista_EhVazia(pLista))
-    {
-        pLista->cabeca->prox = new;
-    }
-
     return 1;
 }
 
-int TLista_Insere_Inicio ( TLista * pLista , char x, TCelula *aux){
+int TLista_Insere_Inicio ( TLista * pLista , char x){
     TCelula *new = (TCelula*) malloc(sizeof(TCelula));
     if(new==NULL) return 0;
     new->item.letra = x;
     //nova celula aponta pro primeiro elemento
-    new->prox = aux->prox;
+    new->prox = pLista->cabeca->prox;
     //cabeça aponta pra nova celula
-    pLista->cabeca = new;
+    pLista->cabeca->prox = new;
     return 1;
 
 }
