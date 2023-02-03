@@ -8,7 +8,7 @@ int main()
 
     TLista lista;
     TLista_Inicia(&lista);
-
+    
     // Leitura
     char textoDigitado[MAXTAM], beiju[MAXTAM];
     int i = 0, j, iBeiju = -1;
@@ -19,7 +19,7 @@ int main()
         if (textoDigitado[tam - 1] == '\n')
         {
             textoDigitado[tam - 1] = '\0';
-            tam--; // desconsidera o \n
+            tam--;
         }
 
         if (textoDigitado[0] == '[')
@@ -41,9 +41,9 @@ int main()
                     beiju[iBeiju] = textoDigitado[j];
                 }
                 beiju[iBeiju + 1] = '\0';
-                for (int k = iBeiju; k >= 0; k--)
+                for (int b = iBeiju; b >= 0; b--)
                 {
-                    TLista_Insere_Inicio(&lista, beiju[k]);
+                    TLista_Insere_Inicio(&lista, beiju[b]);
                 }
                 iBeiju = -1;
                 i = j - 1;
@@ -59,4 +59,5 @@ int main()
     }
     TLista_Esvazia(&lista);
     
+    return 0;
 }
