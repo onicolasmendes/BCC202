@@ -6,18 +6,18 @@
 typedef Lista Pilha;
 
 /* Manter como especificado */
-bool PilhaInicia(Pilha*);
+bool PilhaInicia(Pilha *);
 
 /* Manter como especificado */
-bool PilhaPush(Pilha*, Item);
+bool PilhaPush(Pilha *, Item);
 
 /* Manter como especificado */
-bool PilhaPop(Pilha*, Item*);
+bool PilhaPop(Pilha *, Item *);
 
 /* Manter como especificado */
-bool PilhaEhVazia(Pilha*);
+bool PilhaEhVazia(Pilha *);
 
 /* Manter como especificado */
-void PilhaLibera(Pilha*);
+void PilhaLibera(Pilha *);
 
 #endif // !PILHA_H

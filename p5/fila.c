@@ -9,31 +9,12 @@ bool FilaInicia(Fila *pFila)
 
 bool FilaEnfileira(Fila *pFila, Item item)
 {
-    Celula *new = (Celula*) malloc(sizeof(Celula));
-    if(new == NULL)
-    {
-        return false;
-    }
-    new->item = item;
-    new->prox = NULL;
-    pFila->ultimo->prox = new;
-    pFila->ultimo = new;
-    return true;
+    return ListaInsereFinal(pFila, item);
 }
 
 bool FilaDesinfeleira(Fila *pFila, Item *pItem)
 {
-    if(FilaEhVazia(pFila))
-    {
-        return false;
-    }
-    //printf("entrei\n");
-    Celula *aux;
-    aux = pFila->cabeca->prox;
-    *pItem = aux->item;
-    pFila->cabeca->prox = pFila->cabeca->prox->prox;
-    free(aux);
-    return true;
+    return ListaRetiraPrimeiro(pFila, pItem);
 }
 
 bool FilaEhVazia(Fila *pFila)
@@ -53,6 +34,7 @@ bool FilaInverte(Fila *pFila)
     Pilha pilha;
     PilhaInicia(&pilha);
 
+    //Transfere as células para a pilha
     aux1 = pFila->cabeca->prox;
 
     while (aux1 != NULL)
@@ -60,7 +42,7 @@ bool FilaInverte(Fila *pFila)
         PilhaPush(&pilha, aux1->item);
         aux1 = aux1->prox;
     }
-
+    //Remove as células da fila
     aux1 = pFila->cabeca->prox;
 
     while (aux1 != NULL)
@@ -68,9 +50,10 @@ bool FilaInverte(Fila *pFila)
         FilaDesinfeleira(pFila, &Titem);
         aux1 = pFila->cabeca->prox;
     }
-
+    //ultimo da fila aponta para a cabeca da fila
     pFila->ultimo = pFila->cabeca;
-    
+
+    //dados saem do topo da pilha para a fila, invertendo a ordem, pois o ultimo da fila, originamente, será o primeiro na nova fila 
     aux1 = pilha.cabeca->prox;
     
     while (aux1 != NULL)
@@ -78,7 +61,7 @@ bool FilaInverte(Fila *pFila)
         FilaEnfileira(pFila, aux1->item);
         aux1 = aux1->prox;
     }
-
+    //libera pilha
     PilhaLibera(&pilha);
 
     return true;

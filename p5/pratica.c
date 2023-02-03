@@ -2,16 +2,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void FilaImprime(Fila*);
+void FilaImprime(Fila *);
 
-int main() {
+int main()
+{
     int n;
     Fila fila;
     Item item;
-    //ListaInicia(pilha);
+    // ListaInicia(pilha);
     FilaInicia(&fila);
     scanf("%d", &n);
-    while (n-- > 0) {
+    while (n-- > 0)
+    {
         scanf("%s", item.nome);
         FilaEnfileira(&fila, item);
     }
@@ -21,8 +23,9 @@ int main() {
     return 0;
 }
 
-void FilaImprime(Fila* pFila) {
-    Celula *atual = pFila->cabeca->prox;
-    for(; atual != NULL; atual = atual->prox)
+void FilaImprime(Fila *pFila)
+{
+
+    for (Celula *atual = pFila->cabeca->prox; atual != NULL; atual = atual->prox)
         printf("%s\n", atual->item.nome);
 }

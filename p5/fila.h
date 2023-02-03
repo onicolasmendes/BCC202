@@ -6,21 +6,21 @@
 typedef Lista Fila;
 
 /* Manter como especificado */
-bool FilaInicia(Fila*);
+bool FilaInicia(Fila *);
 
 /* Manter como especificado */
-bool FilaEnfileira(Fila*, Item);
+bool FilaEnfileira(Fila *, Item);
 
 /* Manter como especificado */
-bool FilaDesinfeleira(Fila*, Item*);
+bool FilaDesinfeleira(Fila *, Item *);
 
 /* Manter como especificado */
-bool FilaEhVazia(Fila*);
+bool FilaEhVazia(Fila *);
 
 /* Manter como especificado */
-void FilaLibera(Fila*);
+void FilaLibera(Fila *);
 
 /* Manter como especificado */
-bool FilaInverte(Fila*);
+bool FilaInverte(Fila *);
 
 #endif // !FILA_H
