@@ -36,7 +36,7 @@ void ordena(Aluno *alunos, int n) {
         strcpy(alunos[j].nome, aux);
       }
         
-    } while (h != 1);
+    } while (h > 1);
     
 }
 
@@ -57,7 +57,7 @@ int compare(const char* aluno1, const char* aluno2) {
 
 /* Manter como especificado */
 void imprimeResposta(Aluno* alunos, int n, int k) {
-    printf("%s\n", alunos[k-1].nome);
+    printf("%s\n", alunos[n-k].nome);
 }
 
 /* Manter como especificado */
