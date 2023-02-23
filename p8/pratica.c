@@ -27,7 +27,7 @@ int main()
         npartidas = n * (n - 1) / 2;
 
         //para cada partida...
-        for (i = 0; i < npartidas; ++i) {
+        for (i = 0; i < npartidas; i++) {
             scanf("%d %d %d %d", &time1, &pontos1, &time2, &pontos2);
             // preencher o vetor de estruturas de acordo com os dados lidos
             jogo(vetor, time1, pontos1, time2, pontos2);
@@ -38,11 +38,14 @@ int main()
 
         // imprima o resultado
         imprime(vetor, n, instancia);
-        n++;
+        printf("\n");
+        printf("%d %d %d %d %lf %lf\n", vetor[0].pontos, vetor[1].pontos, vetor[0].perdeuUmJogo, vetor[1].perdeuUmJogo, vetor[0].razao, vetor[1].razao);
+        instancia++;
 
         // desaloque o vetor
-        free(&vetor);
+        desalocaVetor(&vetor);
     }
+
 
     return 0;
 }

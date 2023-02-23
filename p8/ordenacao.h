@@ -7,6 +7,7 @@ typedef struct {
     int pontosSofridos;
     float razao;
     int pontos;
+    int perdeuUmJogo;
 } Time;
 
 // Manter como especificado
@@ -31,4 +32,5 @@ void jogo(Time *times, int t1, int p1, int t2, int p2);
 
 void imprime(Time *times, int n, int instancia);
 
+void calculaRazao(Time *times, int n);
 # endif
