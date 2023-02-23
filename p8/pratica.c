@@ -37,9 +37,10 @@ int main()
             jogo(vetor, time1, pontos1, time2, pontos2);
         }
 
+        calculaRazao(vetor, n);
         // ordenar os times
         ordenacao(vetor, n);
-        printf("%d %d %lf %lf\n", vetor[3].pontos, vetor[4].pontos, vetor[3].razao, vetor[4].razao);
+        //printf("%d %d %lf %lf\n", vetor[3].pontos, vetor[4].pontos, vetor[3].razao, vetor[4].razao);
         // imprima o resultado
         imprime(vetor, n, instancia);
         instancia++;
