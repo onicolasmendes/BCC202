@@ -1,6 +1,7 @@
 #include "ordenacao.h"
 #include <stdlib.h>
 #include <stdio.h>
+// #include <math.h>
 
 // Manter como especificado
 Time *alocaVetor(int n)
@@ -42,36 +43,20 @@ void calculaRazao(Time *times, int n)
 {
     for (int i = 0; i < n; i++)
     {
-        times[i].razao = times[i].pontosFeitos / (float) times[i].pontosSofridos;
+        if (times[i].pontosSofridos == 0)
+        {
+            times[i].razao = times[i].pontos;
+        }
+        else
+        {
+            times[i].razao = (float)times[i].pontosFeitos / times[i].pontosSofridos;
+        }
     }
-    
 }
 
 // compara dois elementos do vetor de times, indicado se o metodo de ordenacao deve troca-los de lugar ou nao
 int compare(Time t1, Time t2)
 {
-
-    /*if (t1.pontosSofridos == 0 && t1.perdeuUmJogo == 0 && t2.pontosSofridos == 0 && t2.perdeuUmJogo == 0)
-    {
-        t1.razao = t1.pontosFeitos;
-        t2.razao = t2.pontosFeitos;
-    }
-    else if (t2.pontosSofridos == 0 && t2.perdeuUmJogo == 0)
-    {
-        t2.razao = t2.pontosFeitos;
-        t1.razao = (float) t1.pontosFeitos / t1.pontosSofridos;
-    }
-    else if (t1.pontosSofridos == 0 && t1.perdeuUmJogo == 0)
-    {
-        t1.razao = t1.pontosFeitos;
-        t2.razao = (float) t2.pontosFeitos / t2.pontosSofridos;
-    }
-    else
-    {
-        t1.razao = (float) t1.pontosFeitos / t1.pontosSofridos;
-        t2.razao = (float) t2.pontosFeitos / t2.pontosSofridos;
-    }*/
-
     if (t1.pontos > t2.pontos)
     {
         return 1;
@@ -86,7 +71,7 @@ int compare(Time t1, Time t2)
     }
     else if (t1.pontos == t2.pontos && t1.razao < t2.razao)
     {
-        return 0;
+        return 0;   
     }
     else if (t1.pontos == t2.pontos && t1.razao == t2.razao && t1.pontosFeitos > t2.pontosFeitos)
     {
@@ -158,23 +143,19 @@ void jogo(Time *times, int t1, int p1, int t2, int p2)
     times[t1 - 1].pontosSofridos += p2;
     times[t2 - 1].pontosFeitos += p2;
     times[t2 - 1].pontosSofridos += p1;
+    
+    
     if (p1 > p2)
     {
         times[t1 - 1].pontos += 2;
-        times[t2 - 1].pontos += 1;
-        times[t2 - 1].perdeuUmJogo = 1;
+        times[t2 - 1].pontos++;
+        
     }
-    else if (p1 < p2)
+    else
     {
         times[t2 - 1].pontos += 2;
-        times[t1 - 1].pontos += 1;
-        times[t1 - 1].perdeuUmJogo = 1;
-    }
-    else if (p1 == p2)
-    {
-        times[t1 - 1].pontos += 2;
-        times[t2 - 1].pontos += 1;
-        times[t2 - 1].perdeuUmJogo = 1;
+        times[t1 - 1].pontos++;
+        
     }
 }
 void imprime(Time *times, int n, int instancia)

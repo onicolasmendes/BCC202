@@ -1,5 +1,5 @@
 all: pratica.o ordenacao.o
-	@gcc pratica.o ordenacao.o -o exe -Wall
+	@gcc pratica.o ordenacao.o -o exe -lm -Wall
 	@rm -r *.o
 pratica.o: pratica.c
 	@gcc pratica.c -c -Wall

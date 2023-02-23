@@ -5,7 +5,7 @@
 int main()
 {
     
-    int instancia = 1;
+    int instancia = 1, controlBarraN = 0;
     //enquanto houver dados
     while (1) {
         int n;
@@ -21,6 +21,10 @@ int main()
         {
             return 0;
         }
+        if(controlBarraN > 0)
+        {
+            printf("\n");
+        }
         //aloque o vetor
         vetor = alocaVetor(n);
         //calcula o numero de partidas
@@ -35,12 +39,11 @@ int main()
 
         // ordenar os times
         ordenacao(vetor, n);
-
+        printf("%d %d %lf %lf\n", vetor[3].pontos, vetor[4].pontos, vetor[3].razao, vetor[4].razao);
         // imprima o resultado
         imprime(vetor, n, instancia);
-        printf("\n");
-        printf("%d %d %d %d %lf %lf\n", vetor[0].pontos, vetor[1].pontos, vetor[0].perdeuUmJogo, vetor[1].perdeuUmJogo, vetor[0].razao, vetor[1].razao);
         instancia++;
+        controlBarraN++;
 
         // desaloque o vetor
         desalocaVetor(&vetor);
