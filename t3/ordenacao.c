@@ -30,72 +30,7 @@ void preencheVetor(TADupa *upas, int n)
     }
 }
 
-void ordenaUpas(TADupa *upas, int n)
-{
-    int i;
 
-    ordenaEmergencia(upas, 0, n - 1);
-
-    for (i = 0; i < n - 1; i++)
-    {
-        if (upas[i].emergencia == upas[i + 1].emergencia)
-        {
-            int novoFinal = i;
-            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia))
-            {
-                novoFinal++;
-            }
-            novoFinal--;
-            ordenaUrgencia(upas, i, novoFinal);
-            i = novoFinal;
-        }
-    }
-
-    for (i = 0; i < n - 1; i++)
-    {
-        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia))
-        {
-            int novoFinal = i;
-            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia))
-            {
-                novoFinal++;
-            }
-            novoFinal--;
-            ordenaSemUrgencia(upas, i, novoFinal);
-            i = novoFinal;
-        }
-    }
-
-    for (i = 0; i < n - 1; i++)
-    {
-        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia) && (upas[i].semUrgencia == upas[i + 1].semUrgencia))
-        {
-            int novoFinal = i;
-            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia) && (upas[i].semUrgencia == upas[novoFinal].semUrgencia))
-            {
-                novoFinal++;
-            }
-            novoFinal--;
-            ordenaPlantonistas(upas, i, novoFinal);
-            i = novoFinal;
-        }
-    }
-
-    for (i = 0; i < n - 1; i++)
-    {
-        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia) && (upas[i].semUrgencia == upas[i + 1].semUrgencia) && (upas[i].plantonistas == upas[i + 1].plantonistas))
-        {
-            int novoFinal = i;
-            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia) && (upas[i].semUrgencia == upas[novoFinal].semUrgencia) && (upas[i].plantonistas == upas[novoFinal].plantonistas))
-            {
-                novoFinal++;
-            }
-            novoFinal--;
-            ordenaNome(upas, i, novoFinal);
-            i = novoFinal;
-        }
-    }
-}
 
 void imprimeUpas(TADupa *upas, int n)
 {
@@ -310,5 +245,72 @@ void ordenaNome(TADupa *upas, int inicio, int final)
     if (esquerda < final)
     {
         ordenaNome(upas, esquerda, final);
+    }
+}
+
+void ordenaUpas(TADupa *upas, int n)
+{
+    int i;
+
+    ordenaEmergencia(upas, 0, n - 1);
+
+    for (i = 0; i < n - 1; i++)
+    {
+        if (upas[i].emergencia == upas[i + 1].emergencia)
+        {
+            int novoFinal = i;
+            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia))
+            {
+                novoFinal++;
+            }
+            novoFinal--;
+            ordenaUrgencia(upas, i, novoFinal);
+            i = novoFinal;
+        }
+    }
+
+    for (i = 0; i < n - 1; i++)
+    {
+        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia))
+        {
+            int novoFinal = i;
+            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia))
+            {
+                novoFinal++;
+            }
+            novoFinal--;
+            ordenaSemUrgencia(upas, i, novoFinal);
+            i = novoFinal;
+        }
+    }
+
+    for (i = 0; i < n - 1; i++)
+    {
+        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia) && (upas[i].semUrgencia == upas[i + 1].semUrgencia))
+        {
+            int novoFinal = i;
+            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia) && (upas[i].semUrgencia == upas[novoFinal].semUrgencia))
+            {
+                novoFinal++;
+            }
+            novoFinal--;
+            ordenaPlantonistas(upas, i, novoFinal);
+            i = novoFinal;
+        }
+    }
+
+    for (i = 0; i < n - 1; i++)
+    {
+        if ((upas[i].emergencia == upas[i + 1].emergencia) && (upas[i].urgencia == upas[i + 1].urgencia) && (upas[i].semUrgencia == upas[i + 1].semUrgencia) && (upas[i].plantonistas == upas[i + 1].plantonistas))
+        {
+            int novoFinal = i;
+            while ((novoFinal < n) && (upas[i].emergencia == upas[novoFinal].emergencia) && (upas[i].urgencia == upas[novoFinal].urgencia) && (upas[i].semUrgencia == upas[novoFinal].semUrgencia) && (upas[i].plantonistas == upas[novoFinal].plantonistas))
+            {
+                novoFinal++;
+            }
+            novoFinal--;
+            ordenaNome(upas, i, novoFinal);
+            i = novoFinal;
+        }
     }
 }
