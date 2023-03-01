@@ -6,7 +6,7 @@ int main ()
 
 	int *vetor;
 	int n;
-	int i, movimentos;
+	int movimentos;
 	while(scanf("%d", &n), n)
 	{
 		
