@@ -16,9 +16,10 @@ void libera(No **ppRaiz)
     {
         return;
     }
-    free((*ppRaiz));
+    
     libera(&(*ppRaiz)->pEsq);
     libera(&(*ppRaiz)->pDir);
+    free((*ppRaiz));
 }
 
 /* Manter como especificado */
